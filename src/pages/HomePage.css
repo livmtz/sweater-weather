@@ -62,3 +62,25 @@
 .suggestion-card p strong {
   color: #4A5568;
 }
+
+/* src/pages/HomePage.css (adicionar ao final) */
+
+.outfit-image-container {
+  width: 100%;
+  max-width: 300px; /* Limita o tamanho da imagem */
+  height: 200px; /* Altura fixa */
+  margin: 15px auto;
+  overflow: hidden; /* Corta o que passar do limite */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex; /* Para centralizar a imagem dentro do container */
+  justify-content: center;
+  align-items: center;
+}
+
+.outfit-image {
+  width: 100%; /* Faz a imagem preencher o container */
+  height: 100%; /* Faz a imagem preencher o container */
+  object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+  display: block; /* Remove espaços extras */
+}
