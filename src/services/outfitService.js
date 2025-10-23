@@ -1,62 +1,52 @@
 // src/services/outfitService.js
 
-/**
- * Analisa os dados do clima e sugere um look.
- * @param {object} weatherData - O objeto de dados vindo da WeatherAPI (já formatado).
- * @returns {object} - Um objeto com a sugestão.
- */
 export const getOutfitSuggestion = (weatherData) => {
-  // Se não tiver dados, não retorna nada.
-  if (!weatherData) {
-    return null;
-  }
+  if (!weatherData) return null;
 
-  // Extraímos os dados que importam para a nossa decisão
-  const temp = weatherData.main.temp;
   const feelsLike = weatherData.main.feels_like;
   const description = weatherData.weather[0].description.toLowerCase();
 
   let suggestion = {
     look: "Não foi possível sugerir um look.",
     tecidosUsar: "",
-    tecidosEvitar: ""
+    tecidosEvitar: "",
+    imageQuery: "person shrugging" // Busca padrão
   };
 
-  // --- AQUI COMEÇA A NOSSA ÁRVORE DE DECISÃO (RF04) ---
-
-  // REGRA 1: Clima Quente (baseado na sensação térmica)
+  // REGRA 1: Clima Quente
   if (feelsLike >= 25) {
     suggestion = {
-      look: "Verão: Camiseta leve, shorts ou saia e sandálias.",
+      look: "Look Verão: Camiseta leve, shorts ou saia e sandálias.",
       tecidosUsar: "Algodão, linho, viscose (tecidos leves e respiráveis).",
-      tecidosEvitar: "Poliéster pesado, lã, couro."
+      tecidosEvitar: "Poliéster pesado, lã, couro.",
+      imageQuery: "summer outfit" // <-- TERMO DE BUSCA
     };
   }
-
   // REGRA 2: Clima Agradável
   else if (feelsLike >= 18 && feelsLike < 25) {
     suggestion = {
-      look: "Casual: Camiseta ou camisa leve e calça jeans.",
+      look: "Look Casual: Camiseta ou camisa leve e calça jeans.",
       tecidosUsar: "Algodão, malha, jeans leve.",
-      tecidosEvitar: "Lã pesada, tecidos muito grossos."
+      tecidosEvitar: "Lã pesada, tecidos muito grossos.",
+      imageQuery: "casual outfit jeans" // <-- TERMO DE BUSCA
     };
   }
-
   // REGRA 3: Clima Fresco ( Sweater Weather! )
   else if (feelsLike >= 12 && feelsLike < 18) {
     suggestion = {
       look: "É dia de Suéter! Use um suéter leve, calça e sapatos fechados.",
       tecidosUsar: "Tricô leve, moletom, flanela.",
-      tecidosEvitar: "Linho, viscose (muito finos)."
+      tecidosEvitar: "Linho, viscose (muito finos).",
+      imageQuery: "sweater weather outfit" // <-- TERMO DE BUSCA
     };
   }
-
   // REGRA 4: Clima Frio
   else if (feelsLike < 12) {
     suggestion = {
       look: "Look Inverno: Casaco pesado, suéter de lã, cachecol e botas.",
       tecidosUsar: "Lã, fleece, tecidos térmicos, couro.",
-      tecidosEvitar: "Algodão leve, linho (não retêm calor)."
+      tecidosEvitar: "Algodão leve, linho (não retêm calor).",
+      imageQuery: "winter coat outfit" // <-- TERMO DE BUSCA
     };
   }
 
@@ -65,6 +55,7 @@ export const getOutfitSuggestion = (weatherData) => {
     suggestion.look += " E não se esqueça de um guarda-chuva e uma jaqueta impermeável!";
     suggestion.tecidosUsar += " Tecidos impermeáveis (nylon).";
     suggestion.tecidosEvitar += " Evite algodão e jeans (demoram para secar!).";
+    suggestion.imageQuery = "rainy day outfit"; // <-- Sobrescreve a busca se chover
   }
 
   return suggestion;

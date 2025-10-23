@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { getWeatherData } from '../services/weatherService';
 import { getOutfitSuggestion } from '../services/outfitService';
-import { getOutfitImage } from '../services/imageService'; // <-- NOVO! Importa o serviço de imagem
+import { getOutfitImage } from '../services/imageService';
 import './HomePage.css';
 
 function HomePage() {
@@ -11,10 +11,9 @@ function HomePage() {
   const [city, setCity] = useState('Formosa do Rio Preto');
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestion, setSuggestion] = useState(null);
-
-  // <-- NOVO! Estado para guardar a URL da imagem do look
+  
   const [outfitImageUrl, setOutfitImageUrl] = useState(null);
-  const [isLoadingImage, setIsLoadingImage] = useState(false); // <-- NOVO! Para mostrar "Carregando imagem..."
+  const [isLoadingImage, setIsLoadingImage] = useState(false);
 
   // useEffect PRINCIPAL: busca dados do clima e gera sugestão
   useEffect(() => {
@@ -23,11 +22,13 @@ function HomePage() {
     const fetchData = async () => {
       setWeatherData(null);
       setSuggestion(null);
-      setOutfitImageUrl(null); // <-- NOVO! Limpa a imagem antiga
+      setOutfitImageUrl(null); 
       try {
+        // 1. Pega os dados do clima
         const data = await getWeatherData(city);
         setWeatherData(data);
 
+        // 2. CHAMA O ESPECIALISTA!
         const outfit = getOutfitSuggestion(data);
         setSuggestion(outfit);
 
@@ -40,28 +41,34 @@ function HomePage() {
     fetchData();
   }, [city]);
 
-  // <-- NOVO useEffect: busca a imagem depois que a sugestão de look está pronta
+  // useEffect SECUNDÁRIO: busca a imagem DEPOIS que a sugestão está pronta
   useEffect(() => {
     const fetchImage = async () => {
-      if (suggestion && suggestion.look) { // Só busca se tiver uma sugestão de look
-        setIsLoadingImage(true); // Começa a carregar
-        const imageUrl = await getOutfitImage(suggestion.look); // Usa o texto do look como busca
-        setOutfitImageUrl(imageUrl);
-        setIsLoadingImage(false); // Terminou de carregar
+      // Só busca se tiver uma sugestão E um termo de busca de imagem
+      if (suggestion && suggestion.imageQuery) { 
+        setIsLoadingImage(true);
+        const imageUrl = await getOutfitImage(suggestion.imageQuery);
+        
+        setOutfitImageUrl(imageUrl); // <-- Esta é a linha que corrige o aviso
+        
+        setIsLoadingImage(false);
       }
-    };
+    }
     fetchImage();
   }, [suggestion]); // Roda sempre que a 'suggestion' (sugestão de look) mudar
 
+  // Função que é chamada quando o formulário é enviado
   const handleSearch = (event) => {
-    event.preventDefault();
-    setCity(searchTerm);
+    event.preventDefault(); // Impede a página de recarregar
+    setCity(searchTerm);    // ATIVA A MÁGICA! Atualiza a 'city' e dispara o useEffect
   };
 
+  // PARTE VISUAL DA PÁGINA
   return (
     <main className="home-page-container">
       <h2>Encontre o look perfeito para o clima de hoje!</h2>
 
+      {/* Formulário de busca */}
       <form className="search-form" onSubmit={handleSearch}>
         <input 
           type="text"
@@ -73,10 +80,10 @@ function HomePage() {
         <button type="submit" className="search-button">Buscar</button>
       </form>
 
-      {/* Mensagem de carregamento do clima */}
+      {/* Se está carregando, mostra "Carregando..." */}
       {!weatherData && city !== "" && <p>Carregando dados do clima...</p>}
 
-      {/* Card do clima */}
+      {/* Se JÁ TEMOS dados, mostramos o card do clima */}
       {weatherData && (
         <div className="weather-card">
           <h3>{weatherData.name}</h3>
@@ -86,11 +93,12 @@ function HomePage() {
         </div>
       )}
 
-      {/* Card de sugestão de look */}
+      {/* Se JÁ TEMOS uma sugestão, mostramos o card de look */}
       {suggestion && (
         <div className="suggestion-card">
           <h4>Sugestão de Look 👕</h4>
-          {/* <-- NOVO! Exibe a imagem, se houver */}
+          
+          {/* Exibe a imagem, se houver */}
           {isLoadingImage && <p>Carregando imagem do look...</p>}
           {!isLoadingImage && outfitImageUrl && (
             <div className="outfit-image-container">
@@ -98,7 +106,7 @@ function HomePage() {
             </div>
           )}
           {!isLoadingImage && !outfitImageUrl && <p>Nenhuma imagem relevante encontrada.</p>}
-
+          
           <p><strong>Look:</strong> {suggestion.look}</p>
           <p><strong>Tecidos para usar:</strong> {suggestion.tecidosUsar}</p>
           <p><strong>Tecidos a evitar:</strong> {suggestion.tecidosEvitar}</p>
