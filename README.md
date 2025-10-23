@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# 🧥 Sweater Weather
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projeto desenvolvido para a matéria de Tópicos Avançados. Esta é uma aplicação web construída em React que sugere looks de roupas com base no clima em tempo real de qualquer cidade do mundo.
 
-## Available Scripts
+**Link para o projeto no ar:** [sweater-weather-o1ov.vercel.app](https://sweater-weather-o1ov.vercel.app/)
 
-In the project directory, you can run:
+## ✨ Funcionalidades Principais
 
-### `npm start`
+* **Busca de Clima em Tempo Real:** Utiliza a [WeatherAPI](https://www.weatherapi.com/) para obter dados meteorológicos atualizados.
+* **Motor de Sugestão de Roupas:** Um "cérebro" de regras (RF02, RF04) que analisa a sensação térmica, temperatura e condições (chuva) para sugerir um look.
+* **Sugestão de Tecidos:** Recomenda tecidos ideais para usar e quais evitar com base no clima.
+* **Interface Reativa:** Construído com componentes React, `useState` e `useEffect`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tecnologias Utilizadas
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **Frontend:** React.js (criado com Create React App)
+* **API de Clima:** WeatherAPI.com
+* **Hospedagem (Deploy):** Vercel
+* **Versionamento:** Git & GitHub
 
-### `npm test`
+## 🚀 Como rodar este projeto localmente
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.  Clone este repositório:
+    `git clone https://github.com/livmtz/sweater-weather.git`
 
-### `npm run build`
+2.  Entre na pasta do projeto:
+    `cd sweater-weather`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3.  Instale as dependências:
+    `npm install`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4.  Crie um arquivo `.env.local` na raiz do projeto e adicione sua chave da API:
+    `REACT_APP_WEATHERAPI_API_KEY=SUA_CHAVE_SECRETA_AQUI`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+5.  Inicie o servidor de desenvolvimento:
+    `npm start`
