@@ -1,0 +1,8 @@
+/* src/components/Header.css */
+.app-header {
+  background-color: #2D3748; /* Um cinza azulado escuro */
+  padding: 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Uma sombra sutil */
+}

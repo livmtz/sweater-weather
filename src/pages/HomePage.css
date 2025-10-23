@@ -1,0 +1,64 @@
+/* src/pages/HomePage.css (adicionar ao final) */
+
+.search-form {
+  display: flex; /* Coloca o input e o botão lado a lado */
+  justify-content: center; /* Centraliza na página */
+  margin-bottom: 20px;
+  gap: 10px; /* Cria um espaço entre o input e o botão */
+}
+
+.search-input {
+  font-size: 1rem;
+  padding: 10px 15px;
+  border: 2px solid #E2E8F0;
+  border-radius: 8px;
+  width: 300px; /* Define um tamanho bom para o campo */
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #4A5568; /* Muda a cor da borda ao clicar */
+}
+
+.search-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2D3748; /* Mesma cor do Header */
+  color: white;
+  cursor: pointer; /* Muda o mouse para "mãozinha" */
+  transition: background-color 0.2s;
+}
+
+.search-button:hover {
+  background-color: #4A5568; /* Escurece um pouco ao passar o mouse */
+}
+
+/* src/pages/HomePage.css (adicionar ao final) */
+
+.suggestion-card {
+  background-color: #F7FAFC; /* Fundo cinza claro */
+  border: 1px dashed #CBD5E0; /* Borda tracejada */
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px; /* Um pouco mais largo que o card de clima */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.suggestion-card h4 {
+  text-align: center;
+  margin-top: 0;
+  color: #2D3748;
+}
+
+.suggestion-card p {
+  margin-bottom: 10px;
+  line-height: 1.5; /* Melhora a legibilidade */
+}
+
+.suggestion-card p strong {
+  color: #4A5568;
+}
