@@ -11,7 +11,7 @@ function App() {
     <div className="app-container">
       <Header />
       <HomePage />
-      <Footer /> {/* 2. ADICIONAR O COMPONENTE AQUI */}
+      <Footer /> 
     </div>
   );
 }

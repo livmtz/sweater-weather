@@ -3,7 +3,7 @@
 import React from 'react';
 import './Footer.css'; 
 function Footer() {
-  // O 'return' com o JSX do nosso rodapé
+  
   return (
     <footer className="app-footer">
       {/* O &copy; é um código HTML para o símbolo de copyright © */}
@@ -13,5 +13,4 @@ function Footer() {
   );
 }
 
-// Não se esqueça de exportar!
 export default Footer;

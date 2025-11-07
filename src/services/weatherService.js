@@ -5,7 +5,7 @@ const API_URL = 'https://api.weatherapi.com/v1/current.json';
 
 export const getWeatherData = async (city) => {
   try {
-    // A URL mudou e a forma de passar os parâmetros também é um pouco diferente
+   
     const response = await fetch(`${API_URL}?key=${API_KEY}&q=${city}&lang=pt`);
 
     if (!response.ok) {
@@ -14,8 +14,6 @@ export const getWeatherData = async (city) => {
 
     const data = await response.json();
 
-    // ATENÇÃO: A estrutura da resposta é diferente!
-    // Vamos "traduzir" a resposta da WeatherAPI para um formato que nosso componente já entende.
     const formattedData = {
       name: data.location.name,
       main: {

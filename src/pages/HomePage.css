@@ -1,10 +1,10 @@
 /* src/pages/HomePage.css (adicionar ao final) */
 
 .search-form {
-  display: flex; /* Coloca o input e o botão lado a lado */
-  justify-content: center; /* Centraliza na página */
+  display: flex;
+  justify-content: center; 
   margin-bottom: 20px;
-  gap: 10px; /* Cria um espaço entre o input e o botão */
+  gap: 10px; 
 }
 
 .search-input {
@@ -12,13 +12,13 @@
   padding: 10px 15px;
   border: 2px solid #E2E8F0;
   border-radius: 8px;
-  width: 300px; /* Define um tamanho bom para o campo */
+  width: 300px; 
   transition: border-color 0.2s;
 }
 
 .search-input:focus {
   outline: none;
-  border-color: #965959; /* Muda a cor da borda ao clicar */
+  border-color: #965959; 
 }
 
 .search-button {
@@ -35,8 +35,6 @@
 .search-button:hover {
   background-color: #965959; /* Escurece um pouco ao passar o mouse */
 }
-
-/* src/pages/HomePage.css (adicionar ao final) */
 
 .suggestion-card {
   background-color: #e7ddddd7;
@@ -63,8 +61,6 @@
   color: #965959
 ;
 }
-
-/* src/pages/HomePage.css (adicionar ao final) */
 
 .outfit-image-container {
   width: 100%;
