@@ -1,8 +1,7 @@
 // src/components/Footer.jsx
 
 import React from 'react';
-import './Footer.css'; // Importando o CSS que vamos criar
-
+import './Footer.css'; 
 function Footer() {
   // O 'return' com o JSX do nosso rodapé
   return (

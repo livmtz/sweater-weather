@@ -1,16 +1,11 @@
 /* src/components/Footer.css */
 .app-footer {
-  background-color: #F7FAFC; /* Um cinza bem clarinho */
-  border-top: 1px solid #E2E8F0; /* Uma borda sutil para separar do conteúdo */
+  background-color: #4A3532; 
+  border-top: 1px solid #E2E8F0;
   padding: 20px;
   text-align: center;
-  color: #718096; /* Cor do texto mais suave */
+  color: #ffffff; 
   font-size: 0.9em;
-  margin-top: auto; /* ESTA LINHA É MÁGICA! */
+  margin-top: auto; 
 }
 
-/* Professor Explica: A propriedade `margin-top: auto;` em um container flex
-(lembra do `display: flex` no App.css?) empurra o elemento para o final
-do container. É isso que faz o nosso rodapé "grudar" na parte de baixo da
-página, mesmo que o conteúdo seja pouco.
-*/

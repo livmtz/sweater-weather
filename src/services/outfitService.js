@@ -16,7 +16,7 @@ export const getOutfitSuggestion = (weatherData) => {
   // REGRA 1: Clima Quente
   if (feelsLike >= 25) {
     suggestion = {
-      look: "Look Verão: Camiseta leve, shorts ou saia e sandálias.",
+      look: "Verão, Camiseta leve, shorts ou saia e sandálias.",
       tecidosUsar: "Algodão, linho, viscose (tecidos leves e respiráveis).",
       tecidosEvitar: "Poliéster pesado, lã, couro.",
       imageQuery: "summer outfit" // <-- TERMO DE BUSCA
@@ -25,7 +25,7 @@ export const getOutfitSuggestion = (weatherData) => {
   // REGRA 2: Clima Agradável
   else if (feelsLike >= 18 && feelsLike < 25) {
     suggestion = {
-      look: "Look Casual: Camiseta ou camisa leve e calça jeans.",
+      look: "Casual, Camiseta ou camisa leve e calça jeans.",
       tecidosUsar: "Algodão, malha, jeans leve.",
       tecidosEvitar: "Lã pesada, tecidos muito grossos.",
       imageQuery: "casual outfit jeans" // <-- TERMO DE BUSCA
@@ -43,7 +43,7 @@ export const getOutfitSuggestion = (weatherData) => {
   // REGRA 4: Clima Frio
   else if (feelsLike < 12) {
     suggestion = {
-      look: "Look Inverno: Casaco pesado, suéter de lã, cachecol e botas.",
+      look: "Inverno, Casaco pesado, suéter de lã, cachecol e botas.",
       tecidosUsar: "Lã, fleece, tecidos térmicos, couro.",
       tecidosEvitar: "Algodão leve, linho (não retêm calor).",
       imageQuery: "winter coat outfit" // <-- TERMO DE BUSCA

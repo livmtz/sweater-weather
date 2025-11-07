@@ -2,5 +2,5 @@
 .home-page-container {
   text-align: center;
   padding: 40px 20px;
-  flex-grow: 1; /* <-- A REGRA AGORA MORA AQUI! */
+  flex-grow: 1; 
 }
