@@ -18,7 +18,7 @@
 
 .search-input:focus {
   outline: none;
-  border-color: #4A5568; /* Muda a cor da borda ao clicar */
+  border-color: #965959; /* Muda a cor da borda ao clicar */
 }
 
 .search-button {
@@ -26,21 +26,21 @@
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  background-color: #2D3748; /* Mesma cor do Header */
-  color: white;
+  background-color: #835c5c; /* Mesma cor do Header */
+  color: rgb(255, 255, 255);
   cursor: pointer; /* Muda o mouse para "mãozinha" */
   transition: background-color 0.2s;
 }
 
 .search-button:hover {
-  background-color: #4A5568; /* Escurece um pouco ao passar o mouse */
+  background-color: #965959; /* Escurece um pouco ao passar o mouse */
 }
 
 /* src/pages/HomePage.css (adicionar ao final) */
 
 .suggestion-card {
-  background-color: #F7FAFC; /* Fundo cinza claro */
-  border: 1px dashed #CBD5E0; /* Borda tracejada */
+  background-color: #e7ddddd7;
+  border: 1px dashed #ece2e2d7; /* Borda tracejada */
   border-radius: 8px;
   padding: 20px;
   margin: 20px auto;
@@ -51,7 +51,7 @@
 .suggestion-card h4 {
   text-align: center;
   margin-top: 0;
-  color: #2D3748;
+  color: #965959;
 }
 
 .suggestion-card p {
@@ -60,7 +60,8 @@
 }
 
 .suggestion-card p strong {
-  color: #4A5568;
+  color: #965959
+;
 }
 
 /* src/pages/HomePage.css (adicionar ao final) */
